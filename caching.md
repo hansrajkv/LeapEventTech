@@ -112,15 +112,15 @@ graph TD
    - Creates a temporary hold in Redis.
    - Returns `reservationId` and `expiresAt`.
 
-## 3. POST /pay
+## 2. POST /pay
    - Processes payment for a reservation.
    - On success → saves order in DB, removes hold, delivers tickets.
    - On failure → removes/lets hold expire.
 
-## 4. GET /orders/{id}
+## 3. GET /orders/{id}
    - Returns order details and tickets after payment.
 
-## 5. GET /health
+## 4. GET /health
    - For monitoring: checks API health.
 
 # Redis caching strategy
