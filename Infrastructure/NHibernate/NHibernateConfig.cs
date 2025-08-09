@@ -17,12 +17,9 @@ namespace LeapEventTech.Infrastructure.NHibernate
                 db.Dialect<SQLiteDialect>();
                 db.Driver<SQLite20Driver>();
                 db.ConnectionReleaseMode = ConnectionReleaseMode.OnClose;
-                db.LogFormattedSql = true;  // Optional: pretty SQL in logs
-                db.LogSqlInConsole = true;  // Optional: show SQL in console
                 db.BatchSize = 32;
             });
 
-            // This scans the current assembly (LeapEventTech) for embedded .hbm.xml files
             cfg.AddAssembly(typeof(NHibernateConfig).Assembly);
 
             return cfg.BuildSessionFactory();

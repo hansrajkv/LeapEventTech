@@ -21,7 +21,7 @@ public sealed class TicketRepository : ITicketRepository
 
     public async Task<IReadOnlyList<TopEventSales>> GetTopByCountAsync(int topN, CancellationToken ct = default)
     {
-        // 1) Aggregate on TicketSales only
+        // Aggregate on TicketSales only
         var agg = await _session.Query<Ticket>()
             .GroupBy(t => t.EventId)
             .Select(g => new
@@ -35,7 +35,7 @@ public sealed class TicketRepository : ITicketRepository
             .Take(topN)
             .ToListAsync(ct);
 
-        // 2) Fetch names for those ids
+        // Fetch names for those ids
         var ids = agg.Select(a => a.EventId).ToArray();
         var names = await _session.Query<Event>()
             .Where(e => ids.Contains(e.Id))
@@ -44,7 +44,7 @@ public sealed class TicketRepository : ITicketRepository
 
         var nameMap = names.ToDictionary(x => x.Id, x => x.Name);
 
-        // 3) Compose result in memory
+        // Compose result in memory
         return agg.Select(a => new TopEventSales
         {
             EventId = a.EventId,

@@ -13,7 +13,7 @@ public sealed class TicketsController : ControllerBase
     public async Task<IActionResult> GetForEvent(string eventId, CancellationToken ct)
         => Ok(await _svc.GetTicketsForEventAsync(eventId, ct));
 
-    // Top 5 leaderboards (count or amount)
+    // Top 5 Sales (count or amount)
     [HttpGet("tickets/top5")]
     public async Task<IActionResult> Top5([FromQuery] string by = "count", CancellationToken ct = default)
     {
