@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36401.2 d17.14
+VisualStudioVersion = 17.14.36401.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeapEventTech", "LeapEventTech.csproj", "{2785F605-A554-4500-8B69-E3CF83CFBBDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeapEventTech.UnitTests", "..\LeapEventTech.UnitTests\LeapEventTech.UnitTests.csproj", "{A84E25D5-A1F5-4D91-B0A4-3BA89AA81103}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2785F605-A554-4500-8B69-E3CF83CFBBDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2785F605-A554-4500-8B69-E3CF83CFBBDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2785F605-A554-4500-8B69-E3CF83CFBBDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A84E25D5-A1F5-4D91-B0A4-3BA89AA81103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A84E25D5-A1F5-4D91-B0A4-3BA89AA81103}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A84E25D5-A1F5-4D91-B0A4-3BA89AA81103}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A84E25D5-A1F5-4D91-B0A4-3BA89AA81103}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
