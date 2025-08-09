@@ -1,4 +1,4 @@
-﻿# Ticketing System: Scalability & Caching (Redis)
+﻿# Ticketing System
 
 This document explains a cloud-native system design for a high-traffic ticketing platform and details the Redis caching strategy. It includes mermaid diagrams for architecture and purchase flow.
 
