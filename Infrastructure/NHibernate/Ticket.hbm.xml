@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="LeapEventTech"
+                   namespace="LeapEventTech.Models">
+
+	<class name="Ticket" table="TicketSales">
+		<id name="Id" column="Id" type="string">
+			<generator class="native"/>
+		</id>
+
+		<property name="EventId" column="EventId" type="string" not-null="true" />
+		<property name="UserId" column="UserId" type="string" not-null="true" />
+		<property name="Price" column="PriceInCents" type="decimal" not-null="true" />
+		<property name="PurchaseDate" column="PurchaseDate" type="datetime" not-null="true" />
+	</class>
+
+</hibernate-mapping>

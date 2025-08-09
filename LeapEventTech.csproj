@@ -7,7 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Infrastructure\NHibernate\Event.hbm.xml" />
+    <None Remove="Infrastructure\NHibernate\Ticket.hbm.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Infrastructure\NHibernate\Event.hbm.xml" />
+    <EmbeddedResource Include="Infrastructure\NHibernate\Ticket.hbm.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NHibernate" Version="5.5.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.119" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Infrastructure\Database\" />
   </ItemGroup>
 
 </Project>
