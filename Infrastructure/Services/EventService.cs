@@ -10,11 +10,18 @@ public sealed class EventService : IEventService
 
     public EventService(IEventRepository repo) => _repo = repo;
 
-    public Task<IReadOnlyList<Event>> GetUpcomingEventsAsync(int days, CancellationToken ct = default)
+    public async Task<IReadOnlyList<Event>> GetUpcomingEventsAsync(int days, CancellationToken ct = default)
     {
         if (!Allowed.Contains(days))
             throw new ArgumentOutOfRangeException(nameof(days), "Must be 30, 60, or 180");
 
-        return _repo.GetUpcomingAsync(days, ct);
+        try
+        {
+            return await _repo.GetUpcomingAsync(days);
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
     }
 }

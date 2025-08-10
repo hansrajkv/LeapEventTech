@@ -12,12 +12,20 @@ public sealed class EventRepository : IEventRepository
 
     public async Task<IReadOnlyList<Event>> GetUpcomingAsync(int days, CancellationToken ct = default)
     {
-        var today = DateTime.UtcNow;
-        var end = today.AddDays(days);
+        try
+        {
+            var today = DateTime.UtcNow;
+            var end = today.AddDays(days);
 
-        return await _session.Query<Event>()
-            .Where(e => e.StartsOn >= today && e.StartsOn < end) 
-            .OrderBy(e => e.StartsOn)
-            .ToListAsync(ct);
+            return await _session.Query<Event>()
+                .Where(e => e.StartsOn >= today && e.StartsOn < end)
+                .OrderBy(e => e.StartsOn)
+                .ToListAsync(ct);
+        }
+        catch (Exception ex)
+        {
+            throw; 
+        }
+
     }
 }
