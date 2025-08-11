@@ -14,6 +14,7 @@ public sealed class TicketRepository : ITicketRepository
     {
         try
         {
+            //Querying through database using Nhibernate session to get events by eventId
             return await _session.Query<Ticket>()
             .Where(t => t.EventId == eventId)
             .OrderBy(t => t.PurchaseDate)

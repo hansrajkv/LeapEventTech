@@ -14,9 +14,10 @@ public sealed class EventRepository : IEventRepository
     {
         try
         {
-            var today = DateTime.UtcNow;
-            var end = today.AddDays(days);
+            var today = DateTime.UtcNow; //get today's date
+            var end = today.AddDays(days); //get the date after passed days
 
+            //Querying through database using Nhibernate session to get list of events by days
             return await _session.Query<Event>()
                 .Where(e => e.StartsOn >= today && e.StartsOn < end)
                 .OrderBy(e => e.StartsOn)

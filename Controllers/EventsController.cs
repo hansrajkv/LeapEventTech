@@ -19,6 +19,7 @@ namespace LeapEventTech.Controllers
         {
             try
             {
+                //Calling the service layer to get the list of events by days
                 var events = await _eventService.GetUpcomingEventsAsync(days);
                 return Ok(events);
             }

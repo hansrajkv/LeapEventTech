@@ -15,9 +15,11 @@ public sealed class TicketsController : ControllerBase
     {
         try
         {
+            //calling the service layer to get the events by eventId
             var evnt = await _svc.GetTicketsForEventAsync(eventId);
             if (evnt.Count == 0)
             {
+                //throwing exception if eventId is not found
                 return NotFound(new { message = $"Event with ID {eventId} not found." });
             }
 
@@ -35,11 +37,13 @@ public sealed class TicketsController : ControllerBase
     {
         try
         {
+            //calling service layer to get top 5 sales by count or amount
             if (by.Equals("count", StringComparison.OrdinalIgnoreCase))
                 return Ok(await _svc.GetTop5ByCountAsync(ct));
             if (by.Equals("amount", StringComparison.OrdinalIgnoreCase))
                 return Ok(await _svc.GetTop5ByAmountAsync(ct));
 
+            //bad request if the param passed is not count or amount
             return BadRequest("Query param 'by' must be 'count' or 'amount'.");
         }
         catch (Exception ex)

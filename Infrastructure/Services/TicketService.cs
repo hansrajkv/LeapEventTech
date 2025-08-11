@@ -10,11 +10,13 @@ public sealed class TicketService : ITicketService
 
     public async Task<IReadOnlyList<Ticket>> GetTicketsForEventAsync(string eventId, CancellationToken ct = default)
     {
+        //Throw exception if requried field (EventId) is not passed
         if (string.IsNullOrWhiteSpace(eventId))
             throw new ArgumentException("eventId is required", nameof(eventId));
 
         try
         {
+            //Calling the data access layer to get the events by eventId
             return await _repo.GetByEventAsync(eventId, ct);
         }
         catch(Exception e)
@@ -27,6 +29,7 @@ public sealed class TicketService : ITicketService
     {
         try
         {
+            //Calling data access layer to get the top 5 sales of tickets by count
             return await _repo.GetTopByCountAsync(5, ct);
         }
         catch(Exception e)
@@ -39,6 +42,7 @@ public sealed class TicketService : ITicketService
     {
         try
         {
+            //Calling data access layer to get the top 5 sales of tickets by amount
             return await _repo.GetTopByAmountAsync(5, ct);
         }
         catch (Exception e)
